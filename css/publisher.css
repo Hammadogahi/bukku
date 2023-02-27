@@ -839,3 +839,31 @@ button:focus {
 	color:#666;
 	font-size:24px;
 }
+
+
+/* Index */
+
+.index .row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+
+.index .col {
+	width: calc(33.33% - 40px);
+	
+}
+
+
+.index .row p {
+	font-size:18px;
+	line-height: 26px;
+}
+
+
+.img-container img {
+	height: 240px;
+	object-fit: cover;
+}

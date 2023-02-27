@@ -67,3 +67,45 @@ function add_link_atts($atts) {
   return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_link_atts');
+
+
+//Include ACF
+
+// Define path and URL to the ACF plugin.
+define( 'BUKKU_PATH', get_stylesheet_directory() . '/includes/acf/' );
+define( 'BUKKU_URL', get_stylesheet_directory_uri() . '/includes/acf/' );
+
+// Include the ACF plugin.
+include_once( BUKKU_PATH . 'acf.php' );
+
+// Customize the url setting to fix incorrect asset URLs.
+add_filter('acf/settings/url', 'my_acf_settings_url');
+function my_acf_settings_url( $url ) {
+    return BUKKU_URL;
+}
+
+// (Optional) Hide the ACF admin menu item.
+add_filter('acf/settings/show_admin', '__return_true');
+
+// When including the PRO plugin, hide the ACF Updates menu
+add_filter('acf/settings/show_updates', '__return_false', 100);
+
+
+//Include Meta Fields
+require get_stylesheet_directory() . '/includes/meta/meta.php';
+
+//Include Testimonials CPT
+require get_stylesheet_directory() . '/includes/cpt/testimonials/testimonials.php';
+
+
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

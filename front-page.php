@@ -1,4 +1,4 @@
-<?php get_header();
+<?php get_header('home');
 ?>
 
 <section id="book">
@@ -9,31 +9,43 @@
 					<img src="<?php echo get_theme_file_uri('img/kindle.png') ; ?>" class="background-device" alt="">
 					<div class="owl-book">
 						<div class="item">
-							<img src="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" alt="">
+							<img src="<?php echo get_field('slide_1')['url']; ?>" alt="">
 							<div class="overlay">
-								<a href="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
+								<a href="<?php echo get_field('slide_1')['url']; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
 							</div>
 						</div>
 						<div class="item">
-							<img src="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" alt="">
+							<img src="<?php echo get_field('slide_2')['url'] ; ?>" alt="">
 							<div class="overlay">
-								<a href="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
+								<a href="<?php echo get_field('slide_2')['url'] ; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
 							</div>
 						</div>
 						<div class="item">
-							<img src="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" alt="">
+							<img src="<?php echo get_field('slide_3')['url'] ; ?>" alt="">
 							<div class="overlay">
-								<a href="<?php echo get_theme_file_uri('img/book_page.png') ; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
+								<a href="<?php echo get_field('slide_3')['url'] ; ?>" class="expand" data-lightbox="book-collection" data-title="Image Caption"><i class="fa fa-expand"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<h2 class="heading wow animated fadeInUp">About The Book</h2>
-				<h4 class="subheading wow animated fadeInUp">This lovely, well-written book is concerned foremost with creating typography and is essential for professionals who regularly work for clients.</h4>
-				<p class="small wow animated fadeInUp">Author writes about designing with the correct typeface; striving for rhythm, proportion, and harmony; choosing and combining type; designing pages; using section heads, subheads, footnotes, and tables; applying kerning and other type adjustments to improve legibility; and adding special characters, including punctuation and diacritical marks. </p>
-				<p class="small wow animated fadeInUp">The Elements of Typographic Style teaches the history of and the artistic and practical perspectives on a variety of type families that are available in Europe and America today.</p>
+				<h2 class="heading wow animated fadeInUp"><?php
+				if(get_field('about_heading')):
+					the_field('about_heading');
+				endif;
+				?></h2>
+				<h4 class="subheading wow animated fadeInUp"><?php
+				if(get_field('about_sub_heading')):
+					the_field('about_sub_heading');
+				endif;
+				?></h4>
+				<p class="small wow animated fadeInUp"><?php 
+				if(get_field('about_text')):
+					the_field('about_text');
+				endif; 
+				?>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -70,96 +82,32 @@
 		</div>
 		<div class="row">
 			<div class="owl-reviews">
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/1.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Alfred Rudolf</h4>
-						<h6 class="subheading muted reviewer-city">Dallas, Texas</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate"></span>
-						</div>
-						<p class="small">This book is an excellent resource for anyone who is serious about graphic layout.</p>
-					</div>
-				</div>
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/2.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Emily Carey</h4>
-						<h6 class="subheading muted reviewer-city">Tampa, Florida</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-						</div>
-						<p class="small">Swiss Typography is a critical guide for graphic designers. I  recommend this fantastic eBook.</p>
-					</div>
-				</div>
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/3.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Martin Doe</h4>
-						<h6 class="subheading muted reviewer-city">Los Angeles, California</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate"></span>
-						</div>
-						<p class="small">Chock full of great photos of lettering with a little info about the artist and projects shown.</p>
-					</div>
-				</div>
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/1.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Alfred Rudolf</h4>
-						<h6 class="subheading muted reviewer-city">Dallas, Texas</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate"></span>
-						</div>
-						<p class="small">This book is an excellent resource for anyone who is serious about graphic layout.</p>
-					</div>
-				</div>
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/3.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Emily Carey</h4>
-						<h6 class="subheading muted reviewer-city">Tampa, Florida</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-						</div>
-						<p class="small">Swiss Typography is a critical guide for graphic designers. I  recommend this fantastic eBook.</p>
-					</div>
-				</div>
-				<div class="item">
-					<div class="review text-center wow animated fadeInUp">
-						<img src="<?php echo get_theme_file_uri('img/reviewers/2.png') ; ?>" class="reviewer-pic" alt="">
-						<h4 class="subheading reviewer-name">Martin Doe</h4>
-						<h6 class="subheading muted reviewer-city">Los Angeles, California</h6>
-						<div class="rating">
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate active"></span>
-							<span class="rate"></span>
-						</div>
-						<p class="small">Chock full of great photos of lettering with a little info about the artist and projects shown.</p>
-					</div>
-				</div>
+			<?php $testimonials = new WP_Query(array('post_type' => 'testimonial', 'post_status' => 'publish'));
+					if($testimonials->have_posts()) {
+						while ($testimonials->have_posts()) {
+							$testimonials->the_post(); ?>
+							<div class="item">
+								<div class="review text-center wow animated fadeInUp">
+									<img src="<?php echo get_the_post_thumbnail_url(); ?>" class="reviewer-pic" alt="">
+									<h4 class="subheading reviewer-name"><?php the_title(); ?></h4>
+									<h6 class="subheading muted reviewer-city"><?php the_field('testimonial_location'); ?></h6>
+									<div class="rating">
+										<?php $rating = get_field('testimonial_rating');
+											for ($x = 0; $x < $rating; $x++) {
+													echo '<span class="rate active"></span>';
+												}
+											for ($x = 5; $x > $rating; $x--) {
+													echo '<span class="rate"></span>';
+												}
+										?>
+									</div>
+									<p class="small"><?php the_field('testimonial_text'); ?></p>
+								</div>
+							</div>
+				<?php		}
+					}
+				 wp_reset_postdata();	
+			?>
 			</div>
 		</div>
 	</div>
@@ -277,33 +225,9 @@
 					info@nicolasadamson.com</h4>
 				</div>
 			</div>
-			<form action="php/newMail.php" method="post" class="mail-form">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-sm-6">
-							<input name="firstname" type="text" class="form-control" placeholder="Name" data-validation="required">
-						</div>
-						<div class="col-sm-6">
-							<input name="email" type="text" class="form-control" placeholder="Email" data-validation="email">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<input name="subject" type="text" class="form-control" placeholder="Subject" data-validation="required">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<textarea name="body" class="form-control" rows="10" placeholder="Message. . ." data-validation="required"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12.text-left">
-							<input type="submit" class="btn btn-green contact-button" value="Send">
-						</div>
-					</div>
-				</div>
-			</form>
+			<!-- <form action="php/newMail.php" method="post" class="mail-form">
+			</form> -->
+			<?php echo do_shortcode( '[contact-form-7 id="43" title="Contact form 1"]'); ?>
 		</div>
 	</div>
 </section>
